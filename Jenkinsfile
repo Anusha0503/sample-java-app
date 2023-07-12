@@ -1,10 +1,12 @@
 node {
 
      stage('checkout'){
-       git branch: 'main', credentialsId: 'anusha0503git', url: 'https://github.com/Anusha0503/sample-java-app.git'
+            git branch: 'main', credentialsId: 'anusha0503git', url: 'https://github.com/Anusha0503/sample-java-app.git'
      } 
      stage('build'){
-      sh " echo ' build is running' " 
+            withMaven(globalMavenSettingsConfig: '', jdk: 'java11', maven: 'maven', mavenSettingsConfig: '', traceability: true) {
+            sh " mvn clean package" 
+             }
      }
      stage('deploy'){
        sh " echo 'deploy done' "
