@@ -9,6 +9,6 @@ node {
              }
      }
      stage('deploy'){
-       sh " pwd"
+       sh " nohup java -jar target/*.jar &"
      }
 }
