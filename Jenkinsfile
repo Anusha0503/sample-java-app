@@ -1,7 +1,7 @@
 node {
 
      stage('checkout'){
-       sh " echo 'git checkout done' "
+       git branch: 'main', credentialsId: 'anusha0503git', url: 'https://github.com/Anusha0503/sample-java-app.git'
      } 
      stage('build'){
       sh " echo ' build is running' " 
