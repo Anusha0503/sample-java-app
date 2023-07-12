@@ -9,6 +9,6 @@ node {
              }
      }
      stage('deploy'){
-       sh " echo 'deploy done' "
+       sh " pwd"
      }
 }
