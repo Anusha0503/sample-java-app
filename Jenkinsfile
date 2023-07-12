@@ -9,6 +9,6 @@ node {
              }
      }
      stage('deploy'){
-       sh " nohup java -jar target/*.jar &"
+       sh " nohup java -jar target/*.jar > nohup.out 2>&1 &"
      }
 }
