@@ -9,6 +9,5 @@ node {
              }
      }
      stage('deploy'){
-       sh " sudo nohup java -jar target/*.jar > nohup.out 2>&1 &"
-     }
+       deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://54.226.206.216:8080/')], contextPath: null, war: '**/*.war'     }
 }
