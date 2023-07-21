@@ -13,5 +13,6 @@ node {
  }
 }
 stage('Maven Build') {
-            sh " mvn clean package"
+            withMaven(globalMavenSettingsConfig: '', jdk: 'java', maven: 'maven', mavenSettingsConfig: '', traceability: true){
+            sh " mvn clean package" }
  }
