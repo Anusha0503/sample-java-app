@@ -1,6 +1,6 @@
 node {
       def server = Artifactory.server "Jfrogid"
-      registry = "http://34.235.151.213:8082/"
+      def registry = "http://34.235.151.213:8082/"
       stage('checkout'){
             git branch: 'main', credentialsId: 'gitcredentials', url: 'https://github.com/Anusha0503/sample-java-app.git'
 }
