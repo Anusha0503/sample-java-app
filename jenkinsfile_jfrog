@@ -5,7 +5,7 @@ node {
      } 
      stage('build'){
             withMaven(globalMavenSettingsConfig: '', jdk: 'java', maven: 'maven', mavenSettingsConfig: '', traceability: true) {
-            sh "mvn --settings setting.xml package"
+            sh "mvn -S setting.xml package"
              }
      }
 }
