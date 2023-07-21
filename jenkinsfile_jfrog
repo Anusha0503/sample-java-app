@@ -2,6 +2,7 @@ node {
       def server = Artifactory.server "Jfrogid"
       def registry = "http://34.235.151.213:8082/"
       def rtMaven = Artifactory.newMavenBuild()
+      def manager = "my manager"
       def buildInfo
       stage('checkout'){
             git branch: 'main', credentialsId: 'gitcredentials', url: 'https://github.com/Anusha0503/sample-java-app.git'
