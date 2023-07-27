@@ -5,7 +5,17 @@ node {
      } 
      stage('build'){
             withMaven(globalMavenSettingsConfig: '', jdk: 'java', maven: 'maven', mavenSettingsConfig: '', traceability: true) {
-            sh "mvn -s setting.xml package"
+            sh "mvn clean deploy"
              }
+      
      }
+     stage('sonarscan'){
+           withMaven(globalMavenSettingsConfig: '', jdk: 'java', maven: 'maven', mavenSettingsConfig: '', traceability: true) {
+           sh " mvn sonar:sonar \
+  -Dsonar.projectKey=sample-java-app \
+  -Dsonar.host.url=http://3.88.168.185:9000 \
+  -Dsonar.login=51db93c63ced4bcb02d8b3611e876b448e2a80bc"
+        
+}
+}
 }
