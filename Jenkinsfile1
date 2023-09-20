@@ -8,4 +8,7 @@ node {
            sh 'mvn clean package'
                   }
              }
+          stage ('docker build image'){
+          sh " docker build -t docker-2:v1 ."
+          }
       }
