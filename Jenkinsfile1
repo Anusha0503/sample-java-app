@@ -11,6 +11,11 @@ node {
           stage ('docker build image'){
           sh " docker build -t sample-k8s-image:v1 ."
           }
+          stage ('docker tag&Push image'){
+               sh " docker login -u mydocker1405 -p Password@123 "
+               sh " docker tag sample-k8s-image:v1 mydocker1405/sample-k8s-image:v1 "
+               sh  " docker push mydocker1405/sample-k8s-image:v1 "
+              }
           stage (' deploy to k8s'){
           sshagent(['kubernetes_Master_pemfile']) {
                sh " scp -o stricthostkeychecking=no sample-k8s-deployment.yaml ubuntu@54.209.120.230:/home/ubuntu"
