@@ -12,7 +12,7 @@ node {
           sh " docker build -t sample-k8s-image:v1 ."
           }
           stage (' deploy to k8s'){
-          sshagent(['kubernetes_pem']) {
+          sshagent(['kubernetes_Master_pemfile']) {
                sh " scp -o stricthostkeychecking=no sample-k8s-deployment.yaml ubuntu@54.209.120.230:/home/ubuntu"
                sh " scp -o stricthostkeychecking=no sample-k8s-service.yaml ubuntu@54.209.120.230:/home/ubuntu"  
       }
