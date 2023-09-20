@@ -15,6 +15,8 @@ node {
           sshagent(['kubernetes_Master_pemfile']) {
                sh " scp -o stricthostkeychecking=no sample-k8s-deployment.yaml ubuntu@54.209.120.230:/home/ubuntu"
                sh " scp -o stricthostkeychecking=no sample-k8s-service.yaml ubuntu@54.209.120.230:/home/ubuntu"  
+               sh " ssh ubuntu@54.209.120.230  kubectl apply -f sample-k8s-deployment.yaml"
+               sh " ssh ubuntu@54.209.120.230  kubectl apply -f sample-k8s-service.yaml"
       }
 } 
 }
