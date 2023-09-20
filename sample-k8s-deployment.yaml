@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: my-app-container
-        image: sample-k8s-image:v1
+        image: mydocker1405/sample-k8s-image:v1
         ports:
         - containerPort: 8080
