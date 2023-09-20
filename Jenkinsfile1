@@ -9,6 +9,6 @@ node {
                   }
              }
           stage ('docker build image'){
-          sh " docker build -t docker-2:v1 ."
+          sh " docker build -t sample-k8s-image:v1 ."
           }
       }
